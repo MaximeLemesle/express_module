@@ -1,0 +1,15 @@
+<%- include('../partials/header'); %>
+
+<main class="main">
+    <% if (isConnected) { %>
+        <h2>Bienvenue sur la page users <%= username %> !</h2>
+    <% } else { %>
+        <h2>Bienvenue sur la page users...</h2>
+    <% } %>
+
+    <div>
+        <h3>Utilisateur <%= id ? id : 0 %></h3>
+    </div>
+</main>
+
+<%- include('../partials/footer'); %>

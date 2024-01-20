@@ -1,0 +1,16 @@
+<%- include('../partials/header'); %>
+
+<main class="main">
+    <% if (isConnected) { %>
+        <h2>Bienvenue sur la page d'accueil <%= username %> !</h2>
+    <% } else { %>
+        <h2>Bienvenue sur la page d'accueil...</h2>
+    <% } %>
+
+    <form action="/download">
+        <button type="submit">Téléchargement</button>
+    </form>
+
+</main>
+
+<%- include('../partials/footer'); %>
