@@ -64,8 +64,9 @@ app.use('/404', page_404);
 
 
 // Page du chat
-import chat from './routes/chat.routes.js';
+import { router as chat, chatServer } from './routes/chat.routes.js';
 app.use('/chat', chat);
+chatServer(server);
 
 
 // Gestion des erreurs
