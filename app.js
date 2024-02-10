@@ -69,9 +69,33 @@ app.use('/chat', chat);
 chatServer(server);
 
 
+// Page artistes
+import artists from './routes/artists.routes.js';
+app.use('/artists', artists);
+
+
+// Page styles
+import styles from './routes/styles.routes.js';
+app.use('/styles', styles);
+
+
+// Page concerts
+import concerts from './routes/concerts.routes.js';
+app.use('/concerts', concerts);
+
+
 // Gestion des erreurs
 app.use('*', page_404);
 
+
+// Graphql
+import { graphqlHTTP } from 'express-graphql';
+import schema from './graphql/schema.js';
+import resolvers from './graphql/resolvers.js';
+app.use('/graphql', graphqlHTTP({
+    schema: schema,
+    rootValue: resolvers
+}))
 
 // Démarage du serveur
 server.listen(port, () => {

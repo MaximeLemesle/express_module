@@ -7,12 +7,8 @@ router.get('/', (req, res) => {
     res.status(200).render('pages/users', { id, username: res.locals.username });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id([0-9]+)', (req, res) => {
     const id = parseInt(req.params.id);
-
-    if (!Number.isInteger(id)) {
-        res.status(404).render('pages/404');
-    }
 
     res.status(200).render('pages/users',{ id });
 });
