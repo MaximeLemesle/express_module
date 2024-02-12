@@ -83,19 +83,20 @@ app.use('/styles', styles);
 import concerts from './routes/concerts.routes.js';
 app.use('/concerts', concerts);
 
-
-// Gestion des erreurs
-app.use('*', page_404);
-
-
 // Graphql
 import { graphqlHTTP } from 'express-graphql';
 import schema from './graphql/schema.js';
 import resolvers from './graphql/resolvers.js';
 app.use('/graphql', graphqlHTTP({
     schema: schema,
-    rootValue: resolvers
+    rootValue: resolvers,
+    graphiql: true
 }))
+
+
+// Gestion des erreurs
+app.use('*', page_404);
+
 
 // Démarage du serveur
 server.listen(port, () => {
