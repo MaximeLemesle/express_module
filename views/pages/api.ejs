@@ -53,7 +53,7 @@
                         <span>Présentation des query possibles</span>
                             <div>
                                 <pre class="code">
-"query": {
+query {
     // Récupérer tout les artistes
     allArtists {
         IdArtiste, pseudo, idStyle
@@ -70,7 +70,7 @@
                         <span>Explication des mutations possibles</span>
                         <div>
                             <pre class="code">
-"mutation": {
+mutation {
     // Créer un nouvel artiste en passant les valeurs en paramêtres
     createArtist(pseudo:"artistName", idStyle:artistStyleId) {
         IdArtiste, pseudo, idStyle
