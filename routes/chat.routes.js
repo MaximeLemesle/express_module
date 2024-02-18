@@ -47,7 +47,7 @@ const chatServer = (server) => {
             const message = {
                 time : newTime,
                 username,
-                content : texte.replace('merde','*****'), 
+                content: texte.replace(/merde|Merde|MERDE/g, '*****'),
             }
 
             console.log(`${message.username}: ${message.content} `);

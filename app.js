@@ -32,6 +32,13 @@ app.use((req, res, next) => {
 });
 
 
+// Middleware pour récupérer l'URL actuelle
+app.use((req, res, next) => {
+    res.locals.currentUrl = req.url;
+    next();
+});
+
+
 // Page accueil
 app.get('/', (req, res) => {
     res.status(200).render('pages/home');
@@ -68,20 +75,25 @@ import { router as chat, chatServer } from './routes/chat.routes.js';
 app.use('/chat', chat);
 chatServer(server);
 
+// Page api
+import api from './routes/api.routes.js';
+app.use('/api', api);
 
-// Page artistes
+
+// Appel artistes
 import artists from './routes/artists.routes.js';
 app.use('/artists', artists);
 
 
-// Page styles
+// Appel styles
 import styles from './routes/styles.routes.js';
 app.use('/styles', styles);
 
 
-// Page concerts
+// Appel concerts
 import concerts from './routes/concerts.routes.js';
 app.use('/concerts', concerts);
+
 
 // Graphql
 import { graphqlHTTP } from 'express-graphql';
@@ -92,6 +104,11 @@ app.use('/graphql', graphqlHTTP({
     rootValue: resolvers,
     graphiql: true
 }))
+
+
+// Page documentation
+import docs from './routes/docs.routes.js';
+app.use('/docs', docs);
 
 
 // Gestion des erreurs

@@ -1,0 +1,97 @@
+<%- include('../partials/header'); %>
+<section class="container">
+
+    <main class="main">
+
+        <div class="title">
+            <% if (isConnected) { %>
+                <h2>Bienvenue sur la page API REST <%= username %> !</h2>
+            <% } else { %>
+                <h2>Bienvenue sur la page API REST...</h2>
+            <% } %>
+        </div>
+
+        <div class="content">
+            <div class="content__title">
+                <h3 class="h3">Voici les différents appels API que j'ai mis en place</h3>
+            </div>
+            
+            <div class="scroll">
+
+                <div class="content__option">
+                    <h4 class="h4">Sélection des artistes</h4>             
+    
+                    <div class="content__buttons">
+                        <a href="/artists" class="btn-secondary">Récupérer tout les artistes</a>
+                        <a href="/artists/4" class="btn-secondary">Récupérer un artiste par son id</a>
+                        <a href="/artists/style/8" class="btn-secondary">Récupérer un artiste par l'id de son style</a>
+                    </div>
+                </div>
+
+                <div class="content__option">
+                    <h4 class="h4">Sélection des concerts</h4>             
+    
+                    <div class="content__buttons">
+                        <a href="/concerts" class="btn-secondary">Récupérer tout les concerts</a>
+                        <a href="/concerts/Angers" class="btn-secondary">Récupérer tout les concerts par ville</a>
+                    </div>
+                </div>
+
+                <div class="content__option">
+                    <h4 class="h4">Sélection des styles</h4>             
+    
+                    <div class="content__buttons">
+                        <a href="/styles" class="btn-secondary">Récupérer tout les styles</a>
+                        <a href="/styles/4" class="btn-secondary">Récupérer un style par son id</a>
+                    </div>
+                </div>
+
+                <div class="content__option">
+                    <h4 class="h4">Utilisation de GraphQL</h4>
+                    
+                    <div class="content__info">
+                        <span>Présentation des query possibles</span>
+                            <div>
+                                <pre class="code">
+"query": {
+    // Récupérer tout les artistes
+    allArtists {
+        IdArtiste, pseudo, idStyle
+    }
+
+    // Récupérer un artiste
+    oneArtist(IdArtiste:13) {
+        IdArtiste, pseudo, idStyle
+    }
+}
+                                </pre>
+                            </div>
+
+                        <span>Explication des mutations possibles</span>
+                        <div>
+                            <pre class="code">
+"mutation": {
+    // Créer un nouvel artiste en passant les valeurs en paramêtres
+    createArtist(pseudo:"artistName", idStyle:artistStyleId) {
+        IdArtiste, pseudo, idStyle
+    }
+
+    // Changer le nom ou le style d'un artiste
+    updateArtist(IdArtiste:4, pseudo:"newArtistName", idStyle:newArtistStyleId) {
+        IdArtiste, pseudo, idStyle
+    }
+}
+                            </pre>
+                        </div> 
+                    </div>
+    
+                    <div class="content__buttons">
+                        <a href="/graphql" class="btn-secondary">Direction GraphiQL</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <%- include('../partials/footer'); %>

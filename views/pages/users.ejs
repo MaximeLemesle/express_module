@@ -1,15 +1,32 @@
 <%- include('../partials/header'); %>
+<section class="container">
 
-<main class="main">
-    <% if (isConnected) { %>
-        <h2>Bienvenue sur la page users <%= username %> !</h2>
-    <% } else { %>
-        <h2>Bienvenue sur la page users...</h2>
-    <% } %>
+    <main class="main">
 
-    <div>
-        <h3>Utilisateur <%= id ? id : 0 %></h3>
-    </div>
-</main>
+        <div class="title">
+            <% if (isConnected) { %>
+                <h2>Bienvenue sur la page users <%= username %> !</h2>
+            <% } else { %>
+                <h2>Bienvenue sur la page users...</h2>
+            <% } %>
+        </div>
 
-<%- include('../partials/footer'); %>
+        <div class="content">
+            <div class="content__title">
+                <h3 class="h3">Utilisateur n°<%= id ? id : 0 %></h3>
+            </div>
+            
+            <div class="content__option">
+                <h4 class="h4">Sélectionner un autre utilisateur, ou ajouter un id dans l'url</h4>             
+
+                <div class="content__buttons">
+                    <a href="/users/3" class="btn-secondary">Utilisateur n°3</a>
+                    <a href="/users/87" class="btn-secondary">Utilisateur n°87</a>
+                    <a href="/users/142" class="btn-secondary">Utilisateur n°142</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <%- include('../partials/footer'); %>

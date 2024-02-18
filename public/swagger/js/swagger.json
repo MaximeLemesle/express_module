@@ -1,0 +1,147 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "API Express Maxime",
+        "description": "API réalisé par Maxime Lemesle",
+        "version": "2.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Artistes",
+            "description": "Routes liées aux artistes"
+        },
+        {
+            "name": "Concerts",
+            "description": "Routes liées aux concerts"
+        },
+        {
+            "name": "Styles",
+            "description": "Routes liées aux styles"
+        }
+    ],
+    "paths": {
+        "/artists": {
+            "get": {
+                "tags": [
+                    "Artistes"
+                ],
+                "summary": "Obtenir la liste de tout les artistes",
+                "operationId": "getArtists",
+                "responses": {
+                    "200": {
+                        "description": "Renvoie les artistes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                 "$ref": "#/components/schemas/ListeDesArtistes"  
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Renvoie une erreur, aucun éléments trouvés"
+
+                    }
+                }
+            }
+        },
+        "/styles": {
+            "get": {
+                "tags": [
+                    "Styles"
+                ],
+                "summary": "Obtenir la liste de tout les styles",
+                "operationId": "getStyles",
+                "responses": {
+                    "200": {
+                        "description": "Renvoie les styles",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                 "$ref": "#/components/schemas/ListeDesStyles"  
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Renvoie une erreur, aucun éléments trouvés"
+
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Artistes": {
+                "type": "object",
+                "properties": {
+                    "IdArtiste": {
+                        "type": "integer"
+                    },
+                    "pseudo": {
+                        "type": "string"
+                    },
+                    "idStyle": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "ListeDesArtistes": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Artistes"
+                },
+                "example": [
+                    {
+                        "IdArtiste": 1,
+                        "pseudo": "Jean-Jacques Goldman",
+                        "idStyle": 8
+                    },
+                    {
+                        "IdArtiste": 2,
+                        "pseudo": "Soprano",
+                        "idStyle": 7
+                    }
+                ]
+            },
+            "Styles": {
+                "type": "object",
+                "properties": {
+                    "idStyle": {
+                        "type": "integer"
+                    },
+                    "libelle": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ListeDesStyles": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Styles"
+                },
+                "example": [
+                    {
+                        "idStyle": 1,
+                        "libelle": "Rap",
+                        "description": "NULL"
+                    },
+                    {
+                        "idStyle": 2,
+                        "libelle": "Rock",
+                        "description": "NULL"
+                    }
+                ]
+            }
+        }
+    }
+}

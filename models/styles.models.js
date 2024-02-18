@@ -5,4 +5,8 @@ const getAllStyles = () => {
     return prisma.style.findMany()
 }
 
-export { getAllStyles };
+const getStyleById = (idStyle) => {
+    return prisma.style.findUnique({where: {idStyle}})
+}
+
+export { getAllStyles, getStyleById };

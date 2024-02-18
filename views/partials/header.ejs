@@ -7,13 +7,25 @@
     <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
-    <header>
-        <h1>Module Express.js v2</h1>
-        <nav>
-            <a href="/">Accueil</a>
-            <a href="/users">Utilisateurs</a>
-            <a href="/connexion">Connexion</a>
-            <a href="/mauvais_url">Page 404</a>
-            <a href="/chat">Chat</a>
-        </nav>
-    </header>
+    <aside class="sidebar">
+        <header class="header">
+            <a href="/"><h1 class="h1">Module Express.js v2</h1></a>
+            <nav class="navbar">
+                <div class="separator"></div>
+                <a class="item <%= (currentUrl === '/') ? 'is-active' : '' %>" href="/">Accueil</a>
+                <div class="separator"></div>
+                <a class="item <%= (currentUrl.includes('/users')) ? 'is-active' : '' %>" href="/users">Utilisateurs</a>
+                <div class="separator"></div>
+                <a class="item <%= (currentUrl === '/connexion') ? 'is-active' : '' %>" href="/connexion">Connexion</a>
+                <div class="separator"></div>
+                <a class="item <%= (currentUrl === '/mauvais_url') ? 'is-active' : '' %>" href="/mauvais_url">Page 404</a>
+                <div class="separator"></div>
+                <a class="item <%= (currentUrl === '/chat') ? 'is-active' : '' %>" href="/chat">Chat</a>
+                <div class="separator"></div>
+                <a class="item <%= (currentUrl === '/api') ? 'is-active' : '' %>" href="/api">API</a>
+                <div class="separator"></div>
+                <a class="item <%= (currentUrl === '/docs') ? 'is-active' : '' %>" href="/docs">Documentation avec <br>Swagger UI</a>
+                <div class="separator"></div>
+            </nav>
+        </header>
+    </aside>

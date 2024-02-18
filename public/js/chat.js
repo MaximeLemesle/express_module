@@ -23,12 +23,13 @@ window.onload = () => {
         messages.forEach((message) => {
             message.time = message.time;
             chat.innerHTML += 
-            `<span ${message.username == "serveur" ? ' class="message__server" ' : ""}>
-                <span class='message__username ${message.username == username ? "message__username--auteur" : ""}'>${message.username}</span>:
+            `<div class="message ${message.username == "serveur" ? 'message__server' : ""}">
+                <span class='message__username ${message.username == username ? "message__username--auteur" : ""}'>${message.username} :</span>
                 <span class='message__content'>${message.content}</span>
                 <span class='message__time'>${message.time}</span>
-            </span>`;
+            </div>`;
         });
+        chat.scrollTop = chat.scrollHeight;
     })
 
     // Récupérer le message écrit par l'utilisateur

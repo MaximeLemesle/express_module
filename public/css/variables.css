@@ -3,8 +3,9 @@
     --main-color: #7C6FE4;
     --text-color: #0C0D1C;
     --white-0: #FFFFFF;
-    --white-100: #F5F6FB;
-    --white-300: #E4E5F0;
+    --white-50: #FCFCFC;
+    --white-100: #F2F3F7;
+    --white-300: #EDEEF2;
 
     /* Fonts */
     --font: 'Roboto', sans-serif;
